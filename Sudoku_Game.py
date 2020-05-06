@@ -1,5 +1,6 @@
 import tkinter
 from tkinter import ttk, Canvas
+import time
 
 
 class Sudoku:
@@ -25,7 +26,6 @@ class Sudoku:
             if k == "":
                 k = 0
             board[i // 9].append(int(k))
-        print(board)
 
         vertical = [[], [], [], [], [], [], [], [], []]
         box = [[], [], [], [], [], [], [], [], []]
@@ -53,6 +53,17 @@ class Sudoku:
 
         return True
 
+    def change_color(self, answer):
+        pop = tkinter.Tk()
+        pop.geometry("130x34+700+300")
+        pop.resizable(False, False)
+        if answer:
+            self.canvas.create_rectangle(0, 555, 555, 0, outline="#00FF00", fill="#00FF00")
+            ttk.Label(pop, text="Correct", font=('Boulder', 18, 'bold')).pack(anchor="center")
+        else:
+            ttk.Label(pop, text="Try Again", font=('Boulder', 18, 'bold')).pack(anchor="center")
+
+
     def __init__(self, root):
         self.root = root
         self.root.geometry("462x505+550+250")
@@ -60,8 +71,8 @@ class Sudoku:
         self.root.resizable(False, False)
         self.canvas = Canvas(self.root, width=550, height=550, bd=0, highlightthickness=0)
         self.canvas.place(x=0, y=0)
-        self.canvas.create_rectangle(0, 555, 555, 0,
-                                     outline="#05f", fill="#000000")
+        self.canvas.create_rectangle(0, 555, 555, 0, outline="#000000", fill="#000000")
+
         a1t = tkinter.StringVar()
         a2t = tkinter.StringVar()
         a3t = tkinter.StringVar()
@@ -71,6 +82,7 @@ class Sudoku:
         a7t = tkinter.StringVar()
         a8t = tkinter.StringVar()
         a9t = tkinter.StringVar()
+
         b1t = tkinter.StringVar()
         b2t = tkinter.StringVar()
         b3t = tkinter.StringVar()
@@ -80,6 +92,7 @@ class Sudoku:
         b7t = tkinter.StringVar()
         b8t = tkinter.StringVar()
         b9t = tkinter.StringVar()
+
         c1t = tkinter.StringVar()
         c2t = tkinter.StringVar()
         c3t = tkinter.StringVar()
@@ -89,6 +102,7 @@ class Sudoku:
         c7t = tkinter.StringVar()
         c8t = tkinter.StringVar()
         c9t = tkinter.StringVar()
+
         d1t = tkinter.StringVar()
         d2t = tkinter.StringVar()
         d3t = tkinter.StringVar()
@@ -98,6 +112,7 @@ class Sudoku:
         d7t = tkinter.StringVar()
         d8t = tkinter.StringVar()
         d9t = tkinter.StringVar()
+
         e1t = tkinter.StringVar()
         e2t = tkinter.StringVar()
         e3t = tkinter.StringVar()
@@ -107,6 +122,7 @@ class Sudoku:
         e7t = tkinter.StringVar()
         e8t = tkinter.StringVar()
         e9t = tkinter.StringVar()
+
         f1t = tkinter.StringVar()
         f2t = tkinter.StringVar()
         f3t = tkinter.StringVar()
@@ -116,6 +132,7 @@ class Sudoku:
         f7t = tkinter.StringVar()
         f8t = tkinter.StringVar()
         f9t = tkinter.StringVar()
+
         g1t = tkinter.StringVar()
         g2t = tkinter.StringVar()
         g3t = tkinter.StringVar()
@@ -125,6 +142,7 @@ class Sudoku:
         g7t = tkinter.StringVar()
         g8t = tkinter.StringVar()
         g9t = tkinter.StringVar()
+
         h1t = tkinter.StringVar()
         h2t = tkinter.StringVar()
         h3t = tkinter.StringVar()
@@ -134,6 +152,7 @@ class Sudoku:
         h7t = tkinter.StringVar()
         h8t = tkinter.StringVar()
         h9t = tkinter.StringVar()
+
         i1t = tkinter.StringVar()
         i2t = tkinter.StringVar()
         i3t = tkinter.StringVar()
@@ -153,6 +172,7 @@ class Sudoku:
         a7 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=a7t)
         a8 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=a8t)
         a9 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=a9t)
+
         b1 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=b1t)
         b2 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=b2t)
         b3 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=b3t)
@@ -162,6 +182,7 @@ class Sudoku:
         b7 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=b7t)
         b8 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=b8t)
         b9 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=b9t)
+
         c1 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=c1t)
         c2 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=c2t)
         c3 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=c3t)
@@ -181,6 +202,7 @@ class Sudoku:
         d7 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=d7t)
         d8 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=d8t)
         d9 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=d9t)
+
         e1 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=e1t)
         e2 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=e2t)
         e3 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=e3t)
@@ -190,6 +212,7 @@ class Sudoku:
         e7 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=e7t)
         e8 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=e8t)
         e9 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=e9t)
+
         f1 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=f1t)
         f2 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=f2t)
         f3 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=f3t)
@@ -209,6 +232,7 @@ class Sudoku:
         g7 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=g7t)
         g8 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=g8t)
         g9 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=g9t)
+
         h1 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=h1t)
         h2 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=h2t)
         h3 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=h3t)
@@ -218,6 +242,7 @@ class Sudoku:
         h7 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=h7t)
         h8 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=h8t)
         h9 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=h9t)
+
         i1 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=i1t)
         i2 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=i2t)
         i3 = ttk.Entry(self.canvas, justify='center', font=('Boulder', 18, 'bold'), textvariable=i3t)
@@ -237,6 +262,7 @@ class Sudoku:
         a7.place(x=309, y=3, width=50, height=50)
         a8.place(x=359, y=3, width=50, height=50)
         a9.place(x=409, y=3, width=50, height=50)
+
         b1.place(x=3, y=53, width=50, height=50)
         b2.place(x=53, y=53, width=50, height=50)
         b3.place(x=103, y=53, width=50, height=50)
@@ -246,6 +272,7 @@ class Sudoku:
         b7.place(x=309, y=53, width=50, height=50)
         b8.place(x=359, y=53, width=50, height=50)
         b9.place(x=409, y=53, width=50, height=50)
+
         c1.place(x=3, y=103, width=50, height=50)
         c2.place(x=53, y=103, width=50, height=50)
         c3.place(x=103, y=103, width=50, height=50)
@@ -265,6 +292,7 @@ class Sudoku:
         d7.place(x=309, y=156, width=50, height=50)
         d8.place(x=359, y=156, width=50, height=50)
         d9.place(x=409, y=156, width=50, height=50)
+
         e1.place(x=3, y=206, width=50, height=50)
         e2.place(x=53, y=206, width=50, height=50)
         e3.place(x=103, y=206, width=50, height=50)
@@ -274,6 +302,7 @@ class Sudoku:
         e7.place(x=309, y=206, width=50, height=50)
         e8.place(x=359, y=206, width=50, height=50)
         e9.place(x=409, y=206, width=50, height=50)
+
         f1.place(x=3, y=256, width=50, height=50)
         f2.place(x=53, y=256, width=50, height=50)
         f3.place(x=103, y=256, width=50, height=50)
@@ -293,6 +322,7 @@ class Sudoku:
         g7.place(x=309, y=309, width=50, height=50)
         g8.place(x=359, y=309, width=50, height=50)
         g9.place(x=409, y=309, width=50, height=50)
+
         h1.place(x=3, y=359, width=50, height=50)
         h2.place(x=53, y=359, width=50, height=50)
         h3.place(x=103, y=359, width=50, height=50)
@@ -302,6 +332,7 @@ class Sudoku:
         h7.place(x=309, y=359, width=50, height=50)
         h8.place(x=359, y=359, width=50, height=50)
         h9.place(x=409, y=359, width=50, height=50)
+
         i1.place(x=3, y=409, width=50, height=50)
         i2.place(x=53, y=409, width=50, height=50)
         i3.place(x=103, y=409, width=50, height=50)
@@ -321,6 +352,7 @@ class Sudoku:
         a7t.trace("w", lambda *args: Sudoku.character_limit(a7t))
         a8t.trace("w", lambda *args: Sudoku.character_limit(a8t))
         a9t.trace("w", lambda *args: Sudoku.character_limit(a9t))
+
         b1t.trace("w", lambda *args: Sudoku.character_limit(b1t))
         b2t.trace("w", lambda *args: Sudoku.character_limit(b2t))
         b3t.trace("w", lambda *args: Sudoku.character_limit(b3t))
@@ -330,6 +362,7 @@ class Sudoku:
         b7t.trace("w", lambda *args: Sudoku.character_limit(b7t))
         b8t.trace("w", lambda *args: Sudoku.character_limit(b8t))
         b9t.trace("w", lambda *args: Sudoku.character_limit(b9t))
+
         c1t.trace("w", lambda *args: Sudoku.character_limit(c1t))
         c2t.trace("w", lambda *args: Sudoku.character_limit(c2t))
         c3t.trace("w", lambda *args: Sudoku.character_limit(c3t))
@@ -339,6 +372,7 @@ class Sudoku:
         c7t.trace("w", lambda *args: Sudoku.character_limit(c7t))
         c8t.trace("w", lambda *args: Sudoku.character_limit(c8t))
         c9t.trace("w", lambda *args: Sudoku.character_limit(c9t))
+
         d1t.trace("w", lambda *args: Sudoku.character_limit(d1t))
         d2t.trace("w", lambda *args: Sudoku.character_limit(d2t))
         d3t.trace("w", lambda *args: Sudoku.character_limit(d3t))
@@ -348,6 +382,7 @@ class Sudoku:
         d7t.trace("w", lambda *args: Sudoku.character_limit(d7t))
         d8t.trace("w", lambda *args: Sudoku.character_limit(d8t))
         d9t.trace("w", lambda *args: Sudoku.character_limit(d9t))
+
         e1t.trace("w", lambda *args: Sudoku.character_limit(e1t))
         e2t.trace("w", lambda *args: Sudoku.character_limit(e2t))
         e3t.trace("w", lambda *args: Sudoku.character_limit(e3t))
@@ -357,6 +392,7 @@ class Sudoku:
         e7t.trace("w", lambda *args: Sudoku.character_limit(e7t))
         e8t.trace("w", lambda *args: Sudoku.character_limit(e8t))
         e9t.trace("w", lambda *args: Sudoku.character_limit(e9t))
+
         f1t.trace("w", lambda *args: Sudoku.character_limit(f1t))
         f2t.trace("w", lambda *args: Sudoku.character_limit(f2t))
         f3t.trace("w", lambda *args: Sudoku.character_limit(f3t))
@@ -366,6 +402,7 @@ class Sudoku:
         f7t.trace("w", lambda *args: Sudoku.character_limit(f7t))
         f8t.trace("w", lambda *args: Sudoku.character_limit(f8t))
         f9t.trace("w", lambda *args: Sudoku.character_limit(f9t))
+
         g1t.trace("w", lambda *args: Sudoku.character_limit(g1t))
         g2t.trace("w", lambda *args: Sudoku.character_limit(g2t))
         g3t.trace("w", lambda *args: Sudoku.character_limit(g3t))
@@ -375,6 +412,7 @@ class Sudoku:
         g7t.trace("w", lambda *args: Sudoku.character_limit(g7t))
         g8t.trace("w", lambda *args: Sudoku.character_limit(g8t))
         g9t.trace("w", lambda *args: Sudoku.character_limit(g9t))
+
         h1t.trace("w", lambda *args: Sudoku.character_limit(h1t))
         h2t.trace("w", lambda *args: Sudoku.character_limit(h2t))
         h3t.trace("w", lambda *args: Sudoku.character_limit(h3t))
@@ -384,6 +422,7 @@ class Sudoku:
         h7t.trace("w", lambda *args: Sudoku.character_limit(h7t))
         h8t.trace("w", lambda *args: Sudoku.character_limit(h8t))
         h9t.trace("w", lambda *args: Sudoku.character_limit(h9t))
+
         i1t.trace("w", lambda *args: Sudoku.character_limit(i1t))
         i2t.trace("w", lambda *args: Sudoku.character_limit(i2t))
         i3t.trace("w", lambda *args: Sudoku.character_limit(i3t))
@@ -395,15 +434,17 @@ class Sudoku:
         i9t.trace("w", lambda *args: Sudoku.character_limit(i9t))
 
         def val():
-            print(Sudoku.valid_solution(a1, a2, a3, a4, a5, a6, a7, a8, a9,
-                                        b1, b2, b3, b4, b5, b6, b7, b8, b9,
-                                        c1, c2, c3, c4, c5, c6, c7, c8, c9,
-                                        d1, d2, d3, d4, d5, d6, d7, d8, d9,
-                                        e1, e2, e3, e4, e5, e6, e7, e8, e9,
-                                        f1, f2, f3, f4, f5, f6, f7, f8, f9,
-                                        g1, g2, g3, g4, g5, g6, g7, g8, g9,
-                                        h1, h2, h3, h4, h5, h6, h7, h8, h9,
-                                        i1, i2, i3, i4, i5, i6, i7, i8, i9, ))
+            answer = Sudoku.valid_solution(a1, a2, a3, a4, a5, a6, a7, a8, a9,
+                                           b1, b2, b3, b4, b5, b6, b7, b8, b9,
+                                           c1, c2, c3, c4, c5, c6, c7, c8, c9,
+                                           d1, d2, d3, d4, d5, d6, d7, d8, d9,
+                                           e1, e2, e3, e4, e5, e6, e7, e8, e9,
+                                           f1, f2, f3, f4, f5, f6, f7, f8, f9,
+                                           g1, g2, g3, g4, g5, g6, g7, g8, g9,
+                                           h1, h2, h3, h4, h5, h6, h7, h8, h9,
+                                           i1, i2, i3, i4, i5, i6, i7, i8, i9, )
+
+            Sudoku.change_color(self, answer)
 
         def reset():
             box = [a1t, a2t, a3t, a4t, a5t, a6t, a7t, a8t, a9t,
